@@ -14,9 +14,9 @@ root = etree.parse(sys.argv[1], etree.HTMLParser())
 htmlList = root.xpath('//ul')[0]
 # print(etree.tostring(htmlList[0], pretty_print=True))
 
-matcherUser = re.compile('login|username|benutzername', re.IGNORECASE)
-matcherPassword = re.compile('passwor[td]', re.IGNORECASE)
-matcherUrl = re.compile('link|web address|url', re.IGNORECASE)
+matcherUser = re.compile('.*(?:login|username|benutzername)', re.IGNORECASE)
+matcherPassword = re.compile('.*(?:passwor[td])', re.IGNORECASE)
+matcherUrl = re.compile('.*(?:link|web address|url)', re.IGNORECASE)
 
 export = {'items': [], 'folders': []}
 for entry in htmlList:
